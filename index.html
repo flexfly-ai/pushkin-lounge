@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pushkin Lounge | Premium Hookah & Cocktails | San Diego</title>
+    <meta name="description" content="Experience San Diego's premier hookah lounge with full bar, craft cocktails, and upscale dining. Reserve your table at Pushkin Lounge in the Gaslamp Quarter.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;400;600&family=Fira+Code&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data for AI Agents -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BarOrPub",
+      "name": "Pushkin Lounge",
+      "image": "https://pushkin.flexfly.ai/images/hero.jpg",
+      "description": "Premium hookah lounge with full bar and dining menu in San Diego's Gaslamp Quarter",
+      "servesCuisine": "American, Lounge Food",
+      "priceRange": "$$",
+      "telephone": "+1-619-496-1908",
+      "email": "pushkinrestaurant@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "750 Sixth Ave",
+        "addressLocality": "San Diego",
+        "addressRegion": "CA",
+        "postalCode": "92101",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "18:00",
+          "closes": "01:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday"],
+          "opens": "18:00",
+          "closes": "02:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday"],
+          "opens": "17:00",
+          "closes": "02:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday"],
+          "opens": "17:00",
+          "closes": "01:00"
+        }
+      ],
+      "acceptsReservations": "True",
+      "hasMenu": "https://pushkin.flexfly.ai/menu",
+      "sameAs": [
+        "https://www.instagram.com/pushkinloungebar/",
+        "https://www.facebook.com/pushkinsandiego/"
+      ]
+    }
+    </script>
+    
+    <style>
+        /* Bold Creative Preset - Dark Mode Base */
+        :root {
+            /* Bold Creative Palette */
+            --color-bg-body: #0A0A0A;       /* Near Black */
+            --color-bg-surface: #171717;    /* Dark Grey surface */
+            --color-text-main: #F5F5F5;     /* White/Grey text */
+            --color-text-muted: #A3A3A3;    /* Muted Grey */
+            --color-accent: #D9F99D;        /* Lime / Electric Green */
+            --color-accent-hover: #BEF264;  /* Slightly dimmer Lime */
+            --color-border: #262626;        /* Dark Grey border */
+            
+            /* Typography */
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+            --font-mono: 'Fira Code', monospace;
+            
+            /* Radius System */
+            --radius-sm: 0.5rem;
+            --radius-md: 1rem;
+            --radius-lg: 2rem;
+            --radius-xl: 3rem;
+            
+            /* Shadows */
+            --shadow-glow: 0 0 40px rgba(217, 249, 157, 0.15);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg-body);
+            color: var(--color-text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Noise Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-border);
+            transition: all 0.4s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 1rem 2rem;
+            background: rgba(23, 23, 23, 0.95);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--color-text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-accent);
+            background: rgba(217, 249, 157, 0.1);
+        }
+        
+        .nav-cta {
+            background: var(--color-accent);
+            color: var(--color-bg-body);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(10, 10, 10, 0.9), rgba(23, 23, 23, 0.7));
+            z-index: 1;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+            opacity: 0.8;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+        }
+        
+        .hero-overline {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 5vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            color: var(--color-text-muted);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .btn-primary {
+            background: var(--color-accent);
+            color: var(--color-bg-body);
+            box-shadow: 0 4px 20px rgba(217, 249, 157, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--color-accent-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-accent);
+            border: 2px solid var(--color-accent);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(217, 249, 157, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 3vw, 3rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--color-accent);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: var(--color-bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(217, 249, 157, 0.1);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+            font-size: 1.5rem;
+        }
+        
+        .feature-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-main);
+        }
+        
+        .feature-description {
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+        
+        /* Hours & Location */
+        .hours-section {
+            background: var(--color-bg-surface);
+            border-radius: var(--radius-xl);
+            padding: 4rem;
+            margin: 4rem auto;
+            max-width: 1000px;
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .hours-item h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+        }
+        
+        .hours-list {
+            list-style: none;
+        }
+        
+        .hours-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 3rem auto 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-text-main);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background: var(--color-bg-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            color: var(--color-text-main);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(217, 249, 157, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-bg-surface);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .footer-links h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-main);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 44px;
+            height: 44px;
+            background: var(--color-bg-body);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--color-border);
+        }
+        
+        .social-link:hover {
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 4rem 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .hours-section {
+                padding: 2rem;
+                margin: 2rem 1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        /* MCP Integration */
+        .mcp-booking {
+            background: var(--color-bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--color-border);
+        }
+        
+        .mcp-booking h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-accent);
+        }
+        
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .booking-form select,
+        .booking-form input {
+            padding: 0.75rem;
+            background: var(--color-bg-body);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            color: var(--color-text-main);
+            font-family: var(--font-body);
+        }
+        
+        .booking-form button {
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">PUSHKIN LOUNGE</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#menu">Menu</a>
+                <a href="#hookah">Hookah</a>
+                <a href="#bar">Bar</a>
+                <a href="#hours">Hours</a>
+                <a href="#contact">Contact</a>
+                <a href="#reservations" class="nav-cta">Reserve Now</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content animate-in">
+            <span class="hero-overline">San Diego's Premier Lounge</span>
+            <h1 class="hero-title">PUSHKIN<br>LOUNGE</h1>
+            <p class="hero-subtitle">Experience premium hookah, craft cocktails, and upscale dining in the heart of San Diego's Gaslamp Quarter.</p>
+            <div class="hero-cta">
+                <a href="#reservations" class="btn btn-primary">Book a Table</a>
+                <a href="#menu" class="btn btn-secondary">View Menu</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">The Ultimate Lounge Experience</h2>
+            <div class="features-grid">
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">💨</div>
+                    <h3 class="feature-title">Premium Hookah</h3>
+                    <p class="feature-description">Wide variety of premium flavors served in elegant hookahs by our expert staff. Experience the finest tobacco and herbal blends in a sophisticated setting.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">🍸</div>
+                    <h3 class="feature-title">Full Bar</h3>
+                    <p class="feature-description">Craft cocktails, premium spirits, and an extensive wine list. Our bartenders create signature drinks that complement the hookah experience.</p>
+                </div>
+                <div class="feature-card animate-in">
+                    <div class="feature-icon">🍽️</div>
+                    <h3 class="feature-title">Upscale Dining</h3>
+                    <p class="feature-description">From shareable plates to full entrees, our kitchen serves elevated lounge cuisine perfect for pairing with drinks and hookah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- MCP Booking Section -->
+    <section class="section" id="reservations">
+        <div class="container">
+            <h2 class="section-title">Reserve Your Experience</h2>
+            <div class="mcp-booking animate-in" data-mcp-action="book-reservation" data-endpoint="/mcp/booking">
+                <h3>Book a Table</h3>
+                <form class="booking-form" id="bookingForm">
+                    <select name="party-size" required>
+                        <option value="">Party Size</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="7">7 Guests</option>
+                        <option value="8">8+ Guests</option>
+                    </select>
+                    <input type="date" name="date" required>
+                    <input type="time" name="time" required>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="tel" name="phone" placeholder="Phone">
+                    <button type="submit" class="btn btn-primary">Find a Table</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Hours & Location -->
+    <section class="section" id="hours">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <div class="hours-section animate-in">
+                <div class="hours-grid">
+                    <div class="hours-item">
+                        <h3>Location</h3>
+                        <p>750 Sixth Avenue<br>San Diego, CA 92101<br>Gaslamp Quarter</p>
+                        <p style="margin-top: 1rem; color: var(--color-accent); font-weight: 600;">
+                            🅿️ Promotional Parking Available<br>
+                            <small style="color: var(--color-text-muted); font-weight: normal;">
+                                Horton Plaza Parking Lot (4th & F St entrance)<br>
+                                12 Hours - $12 with validation
+                            </small>
+                        </p>
+                    </div>
+                    <div class="hours-item">
+                        <h3>Hours</h3>
+                        <ul class="hours-list">
+                            <li><span>Monday - Thursday</span><span>6PM - 1AM</span></li>
+                            <li><span>Friday</span><span>6PM - 2AM</span></li>
+                            <li><span>Saturday</span><span>5PM - 2AM</span></li>
+                            <li><span>Sunday</span><span>5PM - 1AM</span></li>
+                        </ul>
+                    </div>
+                    <div class="hours-item">
+                        <h3>Contact</h3>
+                        <p>
+                            <strong>Phone:</strong> (619) 496-1908<br>
+                            <strong>Email:</strong> pushkinrestaurant@gmail.com<br>
+                            <strong>For Large Parties:</strong> Please call ahead
+                        </p>
+                        <div class="social-links" style="margin-top: 1.5rem;">
+                            <a href="https://www.instagram.com/pushkinloungebar/" class="social-link" target="_blank" aria-label="Instagram">
+                                📷
+                            </a>
+                            <a href="https://www.facebook.com/pushkinsandiego/" class="social-link" target="_blank" aria-label="Facebook">
+                                📘
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-form animate-in">
+                <form id="contactForm" data-mcp-action="contact-form" data-endpoint="/mcp/contact">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-input" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-logo">PUSHKIN LOUNGE</a>
+                    <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">
+                        San Diego's premier hookah lounge offering premium experiences in the Gaslamp Quarter.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/pushkinloungebar/" class="social-link" target="_blank" aria-label="Instagram">
+                            📷
+                        </a>
+                        <a href="https://www.facebook.com/pushkinsandiego/" class="social-link" target="_blank" aria-label="Facebook">
+                            📘
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#hookah">Hookah Flavors</a></li>
+                        <li><a href="#bar">Drink Menu</a></li>
+                        <li><a href="#reservations">Reservations</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#hours">Hours & Location</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#parking">Parking Information</a></li>
+                        <li><a href="#events">Private Events</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Pushkin Lounge. All rights reserved. | 750 Sixth Ave, San Diego, CA 92101</p>
+                <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--color-text-muted);">
+                    Must be 21+ to enter. Please drink responsibly.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Booking form submission (MCP integration)
+        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // In a real implementation, this would call the MCP endpoint
+            // For now, show a success message
+            alert('Thank you! Your reservation request has been received. We will confirm via email shortly.');
+            this.reset();
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // In a real implementation, this would call the MCP endpoint
+            // For now, show a success message
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            this.reset();
+        });
+        
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        // Observe all elements with animate-in class
+        document.querySelectorAll('.animate-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Set minimum date for booking to today
+        const today = new Date().toISOString().split('T')[0];
+        document.querySelector('input[type="date"]').min = today;
+        
+        // Set reasonable time constraints (6PM-1AM)
+        const timeInput = document.querySelector('input[type="time"]');
+        timeInput.min = '18:00';
+        timeInput.max = '01:00';
+        
+        // MCP endpoint simulation
+        window.mcpEndpoints = {
+            '/mcp/booking': async (data) => {
+                // Simulate API call
+                return { success: true, confirmation: `RES-${Date.now()}` };
+            },
+            '/mcp/contact': async (data) => {
+                // Simulate API call
+                return { success: true, message: 'Message received' };
+            },
+            '/mcp/availability': async (data) => {
+                // Simulate availability check
+                return { available: ['18:00', '19:00', '20:00', '21:00', '22:00'] };
+            }
+        };
+    </script>
+</body>
+</html>
