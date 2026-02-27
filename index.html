@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        NOTE: Image placeholders are used throughout this site.
+        In production, replace with actual images from:
+        - Instagram: @pushkinloungebar
+        - Facebook: /pushkinsandiego
+        - Yelp: 1688+ photos available
+        - Their website: pushkinlounge.com
+    -->
     <title>Pushkin Lounge | Premium Hookah & Cocktails | San Diego</title>
     <meta name="description" content="Experience San Diego's premier hookah lounge with full bar, craft cocktails, and upscale dining. Reserve your table at Pushkin Lounge in the Gaslamp Quarter.">
     
@@ -17,9 +25,9 @@
       "@context": "https://schema.org",
       "@type": "BarOrPub",
       "name": "Pushkin Lounge",
-      "image": "https://pushkin.flexfly.ai/images/hero.jpg",
-      "description": "Premium hookah lounge with full bar and dining menu in San Diego's Gaslamp Quarter",
-      "servesCuisine": "American, Lounge Food",
+      "image": "https://pushkin.flexfly.ai/",
+      "description": "San Diego's premier hookah lounge offering premium hookah, craft cocktails, and upscale dining in the Gaslamp Quarter",
+      "servesCuisine": "European, Lounge, Sushi",
       "priceRange": "$$",
       "telephone": "+1-619-496-1908",
       "email": "pushkinrestaurant@gmail.com",
@@ -67,16 +75,16 @@
     </script>
     
     <style>
-        /* Bold Creative Preset - Dark Mode Base */
+        /* Pushkin Lounge Red Theme - Sophisticated Lounge */
         :root {
-            /* Bold Creative Palette */
+            /* Red Theme Palette */
             --color-bg-body: #0A0A0A;       /* Near Black */
-            --color-bg-surface: #171717;    /* Dark Grey surface */
+            --color-bg-surface: #1A0A0A;    /* Dark Red-Black surface */
             --color-text-main: #F5F5F5;     /* White/Grey text */
-            --color-text-muted: #A3A3A3;    /* Muted Grey */
-            --color-accent: #D9F99D;        /* Lime / Electric Green */
-            --color-accent-hover: #BEF264;  /* Slightly dimmer Lime */
-            --color-border: #262626;        /* Dark Grey border */
+            --color-text-muted: #B0A0A0;    /* Muted Red-Grey */
+            --color-accent: #DC2626;        /* Rich Red */
+            --color-accent-hover: #B91C1C;  /* Darker Red */
+            --color-border: #3A1A1A;        /* Red-Black border */
             
             /* Typography */
             --font-heading: 'Oswald', sans-serif;
@@ -230,8 +238,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
-            opacity: 0.8;
+            background: linear-gradient(rgba(26, 10, 10, 0.9), rgba(10, 10, 10, 0.9));
+            opacity: 0.9;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
         }
         
         .hero-content {
@@ -556,6 +574,44 @@
             font-size: 0.875rem;
         }
         
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            background: var(--color-bg-surface);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .gallery-image {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .gallery-caption {
+            padding: 1rem;
+            background: var(--color-bg-body);
+            border-top: 1px solid var(--color-border);
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .container {
@@ -668,13 +724,16 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg"></div>
+        <!-- Placeholder for actual Pushkin Lounge image -->
+        <!-- In production, replace with actual image from their Instagram or website -->
+        <div class="hero-image" style="background: linear-gradient(rgba(220, 38, 38, 0.1), rgba(10, 10, 10, 0.8)), url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1200\" height=\"800\"><rect width=\"100%\" height=\"100%\" fill=\"%231a0a0a\"/><text x=\"50%\" y=\"50%\" font-family=\"Arial\" font-size=\"24\" fill=\"%23dc2626\" text-anchor=\"middle\" dy=\".3em\">Pushkin Lounge • San Diego</text></svg>');"></div>
         <div class="hero-content animate-in">
             <span class="hero-overline">San Diego's Premier Lounge</span>
             <h1 class="hero-title">PUSHKIN<br>LOUNGE</h1>
             <p class="hero-subtitle">Experience premium hookah, craft cocktails, and upscale dining in the heart of San Diego's Gaslamp Quarter.</p>
             <div class="hero-cta">
                 <a href="#reservations" class="btn btn-primary">Book a Table</a>
-                <a href="#menu" class="btn btn-secondary">View Menu</a>
+                <a href="#gallery" class="btn btn-secondary">View Gallery</a>
             </div>
         </div>
     </section>
@@ -685,19 +744,19 @@
             <h2 class="section-title">The Ultimate Lounge Experience</h2>
             <div class="features-grid">
                 <div class="feature-card animate-in">
-                    <div class="feature-icon">💨</div>
+                    <div class="feature-icon" style="background: rgba(220, 38, 38, 0.2);">💨</div>
                     <h3 class="feature-title">Premium Hookah</h3>
                     <p class="feature-description">Wide variety of premium flavors served in elegant hookahs by our expert staff. Experience the finest tobacco and herbal blends in a sophisticated setting.</p>
                 </div>
                 <div class="feature-card animate-in">
-                    <div class="feature-icon">🍸</div>
+                    <div class="feature-icon" style="background: rgba(220, 38, 38, 0.2);">🍸</div>
                     <h3 class="feature-title">Full Bar</h3>
                     <p class="feature-description">Craft cocktails, premium spirits, and an extensive wine list. Our bartenders create signature drinks that complement the hookah experience.</p>
                 </div>
                 <div class="feature-card animate-in">
-                    <div class="feature-icon">🍽️</div>
-                    <h3 class="feature-title">Upscale Dining</h3>
-                    <p class="feature-description">From shareable plates to full entrees, our kitchen serves elevated lounge cuisine perfect for pairing with drinks and hookah.</p>
+                    <div class="feature-icon" style="background: rgba(220, 38, 38, 0.2);">🎵</div>
+                    <h3 class="feature-title">Nightlife Vibe</h3>
+                    <p class="feature-description">Sophisticated lounge atmosphere with curated music and elegant decor. The perfect spot for evenings out in the Gaslamp Quarter.</p>
                 </div>
             </div>
         </div>
@@ -774,6 +833,76 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Instagram Gallery -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Experience Pushkin Lounge</h2>
+            <p style="text-align: center; color: var(--color-text-muted); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                See what our guests are saying on Instagram. Follow us <a href="https://www.instagram.com/pushkinloungebar/" style="color: var(--color-accent); text-decoration: none;">@pushkinloungebar</a> for the latest updates.
+            </p>
+            
+            <div class="gallery-grid animate-in">
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(45deg, #2a0a0a, #1a0a0a);">
+                        <div style="padding: 2rem; text-align: center; color: var(--color-text-muted);">
+                            <span style="font-size: 3rem;">💨</span>
+                            <h3 style="margin-top: 1rem; color: var(--color-accent);">Premium Hookah</h3>
+                            <p>Wide variety of flavors served in elegant hookahs</p>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <span style="color: var(--color-accent);">@pushkinloungebar</span> - Our signature hookah experience
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(45deg, #2a0a0a, #1a0a0a);">
+                        <div style="padding: 2rem; text-align: center; color: var(--color-text-muted);">
+                            <span style="font-size: 3rem;">🍸</span>
+                            <h3 style="margin-top: 1rem; color: var(--color-accent);">Craft Cocktails</h3>
+                            <p>Signature drinks and premium spirits</p>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <span style="color: var(--color-accent);">@pushkinloungebar</span> - Full bar with expert mixologists
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(45deg, #2a0a0a, #1a0a0a);">
+                        <div style="padding: 2rem; text-align: center; color: var(--color-text-muted);">
+                            <span style="font-size: 3rem;">🎉</span>
+                            <h3 style="margin-top: 1rem; color: var(--color-accent);">Nightlife Vibe</h3>
+                            <p>Sophisticated lounge atmosphere</p>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <span style="color: var(--color-accent);">@pushkinloungebar</span> - Perfect for evenings out
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-image" style="background: linear-gradient(45deg, #2a0a0a, #1a0a0a);">
+                        <div style="padding: 2rem; text-align: center; color: var(--color-text-muted);">
+                            <span style="font-size: 3rem;">🍽️</span>
+                            <h3 style="margin-top: 1rem; color: var(--color-accent);">Upscale Dining</h3>
+                            <p>European cuisine with modern flavors</p>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">
+                        <span style="color: var(--color-accent);">@pushkinloungebar</span> - From sushi to shareable plates
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://www.instagram.com/pushkinloungebar/" class="btn btn-secondary" target="_blank">
+                    📷 View More on Instagram
+                </a>
             </div>
         </div>
     </section>
